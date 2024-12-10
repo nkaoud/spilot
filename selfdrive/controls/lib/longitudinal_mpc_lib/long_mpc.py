@@ -40,7 +40,9 @@ J_EGO_COST = 5.0
 A_CHANGE_COST = 200.
 DANGER_ZONE_COST = 100.
 CRASH_DISTANCE = .25
-LEAD_DANGER_FACTOR = 0.75
+#LEAD_DANGER_FACTOR = 0.75
+#LEAD_DANGER_FACTOR = 0.25
+LEAD_DANGER_FACTOR = 0.15
 LIMIT_COST = 1e6
 ACADOS_SOLVER_TYPE = 'SQP_RTI'
 
@@ -94,8 +96,10 @@ def get_dynamic_personality(v_ego, personality=custom.LongitudinalPersonalitySP.
     x_vel =  [0,    11,   14.5, 15,   20,   20.01,  25,    25.01,  36,  36.01]
     y_dist = [1.3,  1.3,  1.3,  1.35, 1.35, 1.385,  1.385, 1.4,   1.4,  1.45]
   elif personality==custom.LongitudinalPersonalitySP.aggressive:
-    x_vel =  [0,     5,     5.01,  11,    14.5,   15,    20,    20.01,  25, 25.01, 36,   36.01]
-    y_dist = [1.12,  1.12,  1.12,  1.12,  1.12,  1.105, 1.105, 1.15, 1.15, 1.18, 1.20,  1.23]
+    #x_vel =  [0,     5,     5.01,  11,    14.5,   15,    20,    20.01,  25, 25.01, 36,   36.01]
+    #y_dist = [1.12,  1.12,  1.12,  1.12,  1.12,  1.105, 1.105, 1.15, 1.15, 1.18, 1.20,  1.23]
+    x_vel =  [0, 4, 8, 12, 16, 21, 25, 29, 33, 38]
+    y_dist = [0.4, 0.5, 0.8, 1, 1.2, 1.4, 1.6, 1.9, 1.95, 2]
   else:
     raise NotImplementedError("Dynamic personality not supported")
 
@@ -176,7 +180,7 @@ def gen_long_ocp():
   x_obstacle = ocp.model.p[2]
   prev_a = ocp.model.p[3]
   lead_t_follow = ocp.model.p[4]
-  lead_danger_factor = ocp.model.p[5]
+  lead_danger_factor = (ocp.model.p[5] / 5) 
 
   ocp.cost.yref = np.zeros((COST_DIM, ))
   ocp.cost.yref_e = np.zeros((COST_E_DIM, ))
