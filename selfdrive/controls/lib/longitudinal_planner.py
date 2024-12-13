@@ -27,11 +27,19 @@ from openpilot.common.swaglog import cloudlog
 LON_MPC_STEP = 0.2  # first step is 0.2s
 A_CRUISE_MIN = -1.2
 
-A_CRUISE_MIN_VALS = [-1.04,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73]
+#A_CRUISE_MIN_VALS = [-1.04,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73]
+#A_CRUISE_MIN_BP =      [0.,     0.05,   0.1,    0.5,    8.33,   16.,    30.,    40.]
+
+#A_CRUISE_MAX_VALS = [3.5, 3.5, 2.8, 2.4,  1.4,  1.0,  .89,  .75,  .50,  .2]
+#A_CRUISE_MAX_BP =      [0.,  1.,  6.,  8.,   11.,  15.,  20.,  25.,  30.,  55.]
+
+
+A_CRUISE_MIN_VALS = [-1.04,  -1.73,  -1.73,  -1.73,  -1.73,  -1.73,  -1.73,  -1.73]
 A_CRUISE_MIN_BP =      [0.,     0.05,   0.1,    0.5,    8.33,   16.,    30.,    40.]
 
-A_CRUISE_MAX_VALS = [3.5, 3.5, 2.8, 2.4,  1.4,  1.0,  .89,  .75,  .50,  .2]
+A_CRUISE_MAX_VALS = [3.5, 3.5, 2.8, 2.4,  0.2,  0.2,  0.2,  0.2,  0.2,  2.2]
 A_CRUISE_MAX_BP =      [0.,  1.,  6.,  8.,   11.,  15.,  20.,  25.,  30.,  55.]
+
 
 CONTROL_N_T_IDX = ModelConstants.T_IDXS[:CONTROL_N]
 
