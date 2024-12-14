@@ -98,8 +98,13 @@ def get_dynamic_personality(v_ego, personality=custom.LongitudinalPersonalitySP.
   elif personality==custom.LongitudinalPersonalitySP.aggressive:
     #x_vel =  [0,     5,     5.01,  11,    14.5,   15,    20,    20.01,  25, 25.01, 36,   36.01]
     #y_dist = [1.12,  1.12,  1.12,  1.12,  1.12,  1.105, 1.105, 1.15, 1.15, 1.18, 1.20,  1.23]
-    x_vel =  [0, 4, 8, 12, 16, 21, 25, 29, 33, 38]
-    y_dist = [0.4, 0.5, 0.8, 1, 1.2, 1.4, 1.6, 1.9, 1.95, 2]
+    
+    #x_vel =  [0, 4, 8, 12, 16, 21, 25, 29, 33, 38]
+    #y_dist = [0.4, 0.5, 0.8, 1, 1.2, 1.4, 1.6, 1.9, 1.95, 2]
+    
+    x_vel =  [0, 1, 2, 4, 8, 10, 15, 20, 25, 30, 35, 40, 45]
+    y_dist = [0.5, 0.5, 0.5, 0.75, 0.5, 0.6, 0.46, 0.5, 0.48, 0.5, 0.57, 0.6, 0.55]
+    
   else:
     raise NotImplementedError("Dynamic personality not supported")
 
