@@ -42,7 +42,8 @@ DANGER_ZONE_COST = 100.
 CRASH_DISTANCE = .25
 #LEAD_DANGER_FACTOR = 0.75
 #LEAD_DANGER_FACTOR = 0.25
-LEAD_DANGER_FACTOR = 0.15
+#LEAD_DANGER_FACTOR = 0.15
+LEAD_DANGER_FACTOR = 0.50
 LIMIT_COST = 1e6
 ACADOS_SOLVER_TYPE = 'SQP_RTI'
 
@@ -98,8 +99,8 @@ def get_dynamic_personality(v_ego, personality=custom.LongitudinalPersonalitySP.
   elif personality==custom.LongitudinalPersonalitySP.aggressive:
     #x_vel =  [0,     5,     5.01,  11,    14.5,   15,    20,    20.01,  25, 25.01, 36,   36.01]
     #y_dist = [1.12,  1.12,  1.12,  1.12,  1.12,  1.105, 1.105, 1.15, 1.15, 1.18, 1.20,  1.23]
-    x_vel =  [0, 4, 8, 12, 16, 21, 25, 29, 33, 38]
-    y_dist = [0.4, 0.5, 0.8, 1, 1.2, 1.4, 1.6, 1.9, 1.95, 2]
+    x_vel =  [0, 4, 8, 12, 16, 21, 25, 29, 33, 38, 42]
+    y_dist = [0.4, 0.5, 0.8, 1, 1.2, 1.4, 1.6, 1.7, 1.8, 1.8, 1.9]
   else:
     raise NotImplementedError("Dynamic personality not supported")
 
@@ -191,7 +192,7 @@ def gen_long_ocp():
   # from an obstacle at every timestep. This obstacle can be a lead car
   # or other object. In e2e mode we can use x_position targets as a cost
   # instead.
-  costs = [((x_obstacle - x_ego) - (desired_dist_comfort)) / (v_ego + 10.),
+  costs = [((x_obstacle - x_ego) - (desired_dist_comfort)) / (v_ego + 5.),
            x_ego,
            v_ego,
            a_ego,
@@ -206,7 +207,7 @@ def gen_long_ocp():
   constraints = vertcat(v_ego,
                         (a_ego - a_min),
                         (a_max - a_ego),
-                        ((x_obstacle - x_ego) - lead_danger_factor * (desired_dist_comfort)) / (v_ego + 10.))
+                        ((x_obstacle - x_ego) - lead_danger_factor * (desired_dist_comfort)) / (v_ego + 5.))
   ocp.model.con_h_expr = constraints
 
   x0 = np.zeros(X_DIM)
