@@ -78,7 +78,7 @@ if __name__ == "__main__":
       lead_speed_label.setText(f"Lead Speed: {lead_speed:.2f} m/s")
       #############  laBLEA ############
 
-      bg.hide()
+      #bg.hide()
       alert1.setText("")
       alert2.setText("offroad")
 
