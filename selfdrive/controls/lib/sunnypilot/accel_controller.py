@@ -40,6 +40,12 @@ _DP_CRUISE_MAX_V_SPORT = [3.5, 3.5, 2.8, 2.4,  1.4,  1.0,  .89,  .75,  .50,  .2]
 _DP_CRUISE_MAX_BP =      [0.,  1.,  6.,  8.,   11.,  15.,  20.,  25.,  30.,  55.]
 
 
+#A_CRUISE_MIN_VALS = [-1.04,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73,  -0.73]
+#A_CRUISE_MIN_BP =      [0.,     0.05,   0.1,    0.5,    8.33,   16.,    30.,    40.]
+
+#A_CRUISE_MAX_VALS = [3.5, 3.5, 2.8, 2.4,  1.4,  1.0,  .89,  .75,  .50,  .2]
+#A_CRUISE_MAX_BP =      [0.,  1.,  6.,  8.,   11.,  15.,  20.,  25.,  30.,  55.]
+
 class AccelController:
   def __init__(self):
     self._personality = AccelPersonality.stock
