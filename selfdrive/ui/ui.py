@@ -21,9 +21,17 @@ if __name__ == "__main__":
 
   alert1 = QLabel()
   alert2 = QLabel()
+#############  laBLEA ############
+  hello_world = QLabel("hello world", alignment=Qt.AlignCenter)  # Add this line
+#############  laBLEA ############
+  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
   vlayout = QVBoxLayout()
   vlayout.addWidget(alert1, alignment=Qt.AlignCenter)
   vlayout.addWidget(alert2, alignment=Qt.AlignCenter)
+#############  laBLEA ############
+  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
+#############  laBLEA ############
+
 
   tmp = QWidget()
   tmp.setLayout(vlayout)
