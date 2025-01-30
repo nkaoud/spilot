@@ -24,13 +24,13 @@ if __name__ == "__main__":
   lead_speed_label = QLabel("Lead Speed: --", alignment=Qt.AlignCenter)
   vlayout.addWidget(lead_speed_label, alignment=Qt.AlignCenter)
 #############  laBLEA ############
-#  hello_world = QLabel("hello world", alignment=Qt.AlignCenter)  # Add this line
+  hello_world = QLabel("hello world", alignment=Qt.AlignCenter)  # Add this line
 #############  laBLEA ############
   vlayout = QVBoxLayout()
   vlayout.addWidget(alert1, alignment=Qt.AlignCenter)
   vlayout.addWidget(alert2, alignment=Qt.AlignCenter)
 #############  laBLEA ############
-#  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
+  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
 #############  laBLEA ############
 
 
