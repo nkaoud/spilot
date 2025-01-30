@@ -21,15 +21,16 @@ if __name__ == "__main__":
 
   alert1 = QLabel()
   alert2 = QLabel()
+  lead_speed_label = QLabel("Lead Speed: --", alignment=Qt.AlignCenter)
+  vlayout.addWidget(lead_speed_label, alignment=Qt.AlignCenter)
 #############  laBLEA ############
-  hello_world = QLabel("hello world", alignment=Qt.AlignCenter)  # Add this line
+#  hello_world = QLabel("hello world", alignment=Qt.AlignCenter)  # Add this line
 #############  laBLEA ############
-  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
   vlayout = QVBoxLayout()
   vlayout.addWidget(alert1, alignment=Qt.AlignCenter)
   vlayout.addWidget(alert2, alignment=Qt.AlignCenter)
 #############  laBLEA ############
-  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
+#  vlayout.addWidget(hello_world, alignment=Qt.AlignCenter)  # Add this line
 #############  laBLEA ############
 
 
@@ -52,7 +53,8 @@ if __name__ == "__main__":
     }
   """)
 
-  sm = messaging.SubMaster(['deviceState', 'controlsState'])
+  #sm = messaging.SubMaster(['deviceState', 'controlsState'])
+  sm = messaging.SubMaster(['deviceState', 'controlsState', 'radarState'])
 
   def update():
     sm.update(0)
@@ -71,6 +73,11 @@ if __name__ == "__main__":
       if not sm.alive['controlsState']:
         alert1.setText("waiting for controls...")
     else:
+      #############  laBLEA ############
+      lead_speed = sm['radarState'].leadOne.vRel
+      lead_speed_label.setText(f"Lead Speed: {lead_speed:.2f} m/s")
+      #############  laBLEA ############
+
       bg.hide()
       alert1.setText("")
       alert2.setText("offroad")
